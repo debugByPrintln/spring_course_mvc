@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,5 +20,16 @@
         <br>
         <h1>Department: ${employee.department}</h1>
         <br>
+        <h1>Car brand: ${employee.carBrand}</h1>
+        <br>
+        <h1>Languages:
+            <ul>
+                <c:forEach var="lang" items="${employee.languages}">
+                <li>
+                    ${lang}
+                </li>
+                </c:forEach>
+            </ul>
+        </h1>
     </body>
 </html>

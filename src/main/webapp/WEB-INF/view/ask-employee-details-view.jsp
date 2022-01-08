@@ -17,10 +17,18 @@
             <br>
             Department:
             <form:select path="department">
-                <form:option value="Information technologies" label="IT"/>
+                <form:option value="InTech" label="IT"/>
                 <form:option value="Human resources" label="HR"/>
                 <form:option value="Sales" label="Sales"/>
             </form:select>
+            <br>
+            Select car brand:
+            <form:radiobuttons path="carBrand" items="${employee.carsList}"/>
+            <br>
+            Foreign languages knowledge:
+            EN <form:checkbox path="languages" value="English"/>
+            FR <form:checkbox path="languages" value="French"/>
+            DE <form:checkbox path="languages" value="Deutch"/>
             <br>
             <input type="submit" value="OK!">
         </form:form>
