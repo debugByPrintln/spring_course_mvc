@@ -31,5 +31,9 @@
                 </c:forEach>
             </ul>
         </h1>
+        <br>
+        <h1>Phone number: ${employee.phoneNumber}</h1>
+        <br>
+        <h1>Email: ${employee.email}</h1>
     </body>
 </html>

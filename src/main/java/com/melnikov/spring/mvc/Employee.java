@@ -1,18 +1,39 @@
 package com.melnikov.spring.mvc;
 
+import com.melnikov.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Employee {
 
+    @Size(min = 2, message = "Name must be 2 symbols min")
     private String name;
+
+    @NotBlank(message = "surname is required")
     private String surname;
+
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1000, message = "must be less than 1001")
     private int salary;
+
     private String department;
+
     private String carBrand;
+
     private Map<String, String> carsList;
+
     private String[] languages;
+
+    @Pattern(regexp = "\\d-\\d{3}-\\d{3}-\\d{2}-\\d{2}", message = "please use pattern: X-XXX-XXX-XX-XX")
+    private String phoneNumber;
+
+    @CheckEmail//(value = "mail.ru", message = "must ends with mail.ru")
+    private String email;
+
+
 
     public Employee() {
         carsList = new LinkedHashMap<>();
@@ -86,5 +107,21 @@ public class Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
